@@ -1,0 +1,26 @@
+button:focus {
+  outline: none;
+}
+
+.usersContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.userWrapper {
+  width: 25%;
+  /* height: 413px; */
+  list-style: none;
+}
+
+@media (max-width: 1200px) {
+  .userWrapper {
+    width: 33.3%;
+  }
+}
+
+@media (max-width: 768px) {
+  .userWrapper {
+    width: 100%;
+  }
+}
