@@ -8,7 +8,7 @@ export default function Main() {
   const [loader, setLoader] = useState(true);
   const [users, setUsers] = useState([]);
   useEffect(() => {
-    const fetchUser = async () => {
+    const fetchUser = () => {
       axios
         .get(`https://jsonplaceholder.typicode.com/users`)
         .then((res) => {
@@ -16,7 +16,7 @@ export default function Main() {
           return persons;
         })
         .then((res) => {
-          res.map(async (person) => {
+          res.map((person) => {
             axios
               .get(
                 `https://avatars.dicebear.com/v2/avataaars/{{${person.username}}}.svg?options[mood][]=happy`
@@ -27,6 +27,7 @@ export default function Main() {
                   return [...prevState, { ...person, avatar: avatar }];
                 });
               });
+            return true;
           });
           setLoader(false);
         });
